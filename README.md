@@ -35,7 +35,7 @@ As well as information about how the raw data that was used was collected.
 * Download the Data and Unzip
   + `https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip`
 * Read in the activity labels `data.activity_labels<-fread("UCI HAR Dataset/activity_labels.txt")`
-  + `head(data.activity_labels)`
+
  
 | V1|V2                 |
 |--:|:------------------|
@@ -47,7 +47,7 @@ As well as information about how the raw data that was used was collected.
 |  6|LAYING             |
 
 * Read in the features `data.features<-fread("UCI HAR Dataset/features.txt",select = c("V2"))`
-  + `head(data.features)`
+
  
 |V2                |
 |:-----------------|
