@@ -58,7 +58,7 @@ rm(data.test.subject)
 
 #Bind Train and Test set
 data<-rbind(data.train,data.test)
-data.test<-rbind(data.train,data.test)
+
 
 #Extracts only the measurements on the mean and standard deviation for each measurement.
 

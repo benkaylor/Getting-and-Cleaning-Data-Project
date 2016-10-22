@@ -2,56 +2,27 @@
 
 This codebook will help you to understand how the **run_analysis.R** script works to create a simple data set and tidy dataset.
 
-# Creating a Tidy Data Set
+# Variables
 
-* Read in the activity labels `data.activity_labels<-fread("UCI HAR Dataset/activity_labels.txt")`
-  + `head(data.activity_labels)`
- 
-| V1|V2                 |
-|--:|:------------------|
-|  1|WALKING            |
-|  2|WALKING_UPSTAIRS   |
-|  3|WALKING_DOWNSTAIRS |
-|  4|SITTING            |
-|  5|STANDING           |
-|  6|LAYING             |
+* Global
+  + `data.activity_labels` - Reads activity_labels.txt and labels
+  + `data.features` - reads features.txt and labels data.train.x and data.test.x
+  + `data` - merges data from `data.train` and `data.test` into single dataset, filtered for mean and std column values
+  + `data.tidy` - summarized tidy data grouped by subject and activity, and mean value taken of remaining columns
 
-* Read in the features `data.features<-fread("UCI HAR Dataset/features.txt",select = c("V2"))`
-  + `head(data.features)`
- 
-|V2                |
-|:-----------------|
-|tBodyAcc-mean()-X |
-|tBodyAcc-mean()-Y |
-|tBodyAcc-mean()-Z |
-|tBodyAcc-std()-X  |
-|tBodyAcc-std()-Y  |
-|tBodyAcc-std()-Z  |
-|tBodyAcc-mad()-X  |
-|tBodyAcc-mad()-Y  |
-|tBodyAcc-mad()-Z  |
-|tBodyAcc-max()-X  |
+* Training Data Specific
+  + `data.train.x` - raw measurements from X_train.txt
+  + `data.train.y` - raw activity type from y_train.txt
+  + `data.train.subject` - raw subject from subject_train.txt
+  + `data.train` - merges data.train.y, data.train.x, and data.train.subject
 
-* Read in training set data, cbind and label columns using `data.features`
-  + x_train.txt
-  + y_train.txt
-  + subject_train.txt
-* Read in test set data, cbind and label columns using `data.features`
-  + x_test.txt
-  + y_test.txt
-  + subject_test.txt
-* Merge test and training data into single long form data table
-* Extract just the mean and std values
-  + `data[,which(!grepl("subject$|activities$|-mean()[^meanFreq]|-std()", colnames(data))):=NULL]`
-* Use 'data.activity_labels' to replace 1-6 values with WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING
-  + `for (i in 1:length(data.activity_labels[[1]])) {
-  data$activities<-gsub(data.activity_labels[[1]][i],data.activity_labels[[2]][i],data$activities)
-}`
-* Create a tidy data set with just the summarized mean values for each activity and subject
-  + `data.tidy <- data %>% group_by(subject,activities) %>% summarize_each(funs(mean))`
-* View output of thedatasets using `View(data)` and `View(data.tidy)`
-* Also writes the output of `data.tidy` to **uci-tidy-dataset.txt**
-  + `write.table(data.tidy, file="uci-tidy-dataset.txt", quote=FALSE, sep='\t', row.names = FALSE)`
+* Test Data Specific
+  + `data.test.x` - raw measurements from X_test.txt
+  + `data.test.y` - raw activity type from y_test.txt
+  + `data.test.subject` - raw subject from subject_test.txt
+  + `data.test` - merges data.test.y, data.test.x, and data.test.subject
+  + `data.test` - merges data.test.y, data.test.x, and data.test.subject
+
 
 ## Additional Information About How the Raw Data Was Collected
 
