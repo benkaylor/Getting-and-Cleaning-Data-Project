@@ -2,7 +2,7 @@
 
 This is the course project for Getting and Cleaning Data, a coursera course by John Hopkins University. 
 
-## The `run_analysis.R` script does the following:
+## The **run_analysis.R** script does the following:
 
 1. Merges the training and the test sets to create one data set.
 2. Extracts only the measurements on the mean and standard deviation for each measurement.
@@ -12,5 +12,5 @@ This is the course project for Getting and Cleaning Data, a coursera course by J
 
 ## Output of the Analyis 
 
-Output of the tiday dataset can be found in `uci-tidy-dataset.txt` 
+Output of the tiday dataset can be found in **uci-tidy-dataset.txt** 
 Or in environment as `View(data)` and `View(data.tidy)`
