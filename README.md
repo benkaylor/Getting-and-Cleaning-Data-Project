@@ -30,10 +30,10 @@ View the CodeBook.md for additional details about variables used in **run_analys
  
 As well as information about how the raw data that was used was collected. 
 
-### Additional Details
+### Additional Details about Using run_analysis.R
 
 * Download the Data and Unzip
-  + `https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip","Human+Activity+Recognition+Using+Smartphones.zip`
+  + `https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip`
 * Read in the activity labels `data.activity_labels<-fread("UCI HAR Dataset/activity_labels.txt")`
   + `head(data.activity_labels)`
  
@@ -62,18 +62,18 @@ As well as information about how the raw data that was used was collected.
 |tBodyAcc-mad()-Z  |
 |tBodyAcc-max()-X  |
 
-* Read in training set data, cbind and label columns using `data.features`
+* Read in training set data, cbind and label columns using `data.train`
   + x_train.txt
   + y_train.txt
   + subject_train.txt
-* Read in test set data, cbind and label columns using `data.features`
+* Read in test set data, cbind and label columns using `data.test`
   + x_test.txt
   + y_test.txt
   + subject_test.txt
-* Merge test and training data into single long form data table
+* Merge test and training data into single long form data frame `data`
 * Extract just the mean and std values
   + `data[,which(!grepl("subject$|activities$|-mean()[^meanFreq]|-std()", colnames(data))):=NULL]`
-* Use 'data.activity_labels' to replace 1-6 values with WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING
+* Use `data.activity_labels` to replace 1-6 values with WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING
   + `for (i in 1:length(data.activity_labels[[1]])) {
   data$activities<-gsub(data.activity_labels[[1]][i],data.activity_labels[[2]][i],data$activities)
 }`
