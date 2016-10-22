@@ -23,12 +23,7 @@ It outputs to datasets, "data" and "data.tidy".
 
 Text Source - http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones 
 Image Source - https://www.semanticscholar.org/paper/Energy-Efficient-Smartphone-Based-Activity-Anguita-Ghio/dc7024840a4ba7ab634517fae53e77695ff5dda9 
- 
- 
-![Figure 2: Human activity recognition experimental setup. Two of the six activities performed during experimentation and their triaxial acceleration signals: (a) walking, (b) walking upstairs.](https://ai2-s2-public.s3.amazonaws.com/figures/2016-03-25/dc7024840a4ba7ab634517fae53e77695ff5dda9/6-Figure2-1.png)
 
-Image Source - https://www.semanticscholar.org/paper/Energy-Efficient-Smartphone-Based-Activity-Anguita-Ghio/dc7024840a4ba7ab634517fae53e77695ff5dda9
- 
  
 ![Figure 1: Samsung Galaxy S2 Smartphone. (a) arrows show the axis orientation of the accelerometer. (b) the smartphone case and belt used for the experiments](https://ai2-s2-public.s3.amazonaws.com/figures/2016-03-25/dc7024840a4ba7ab634517fae53e77695ff5dda9/5-Figure1-1.png)
  
@@ -43,5 +38,7 @@ Image Source - https://www.semanticscholar.org/paper/Energy-Efficient-Smartphone
   + Therefore X is head or body moving up and down - red
   + Therefore Y is moving head or body left or right - green
   + Therefore Z is moving head or body forward or backward - blue
+ 
+![Figure 2: Human activity recognition experimental setup. Two of the six activities performed during experimentation and their triaxial acceleration signals: (a) walking, (b) walking upstairs.](https://ai2-s2-public.s3.amazonaws.com/figures/2016-03-25/dc7024840a4ba7ab634517fae53e77695ff5dda9/6-Figure2-1.png)
 
-
+Image Source - https://www.semanticscholar.org/paper/Energy-Efficient-Smartphone-Based-Activity-Anguita-Ghio/dc7024840a4ba7ab634517fae53e77695ff5dda9
