@@ -1,6 +1,6 @@
 # Getting and Cleaning Data Coursera Course Project
 
-This is the course project for Getting and Cleaning Data, a coursera course by John Hopkins University. 
+This is the course project for Getting and Cleaning Data, a Coursera course created by John Hopkins University. 
 
 ## The **run_analysis.R** script does the following:
 
@@ -12,5 +12,12 @@ This is the course project for Getting and Cleaning Data, a coursera course by J
 
 ## Output of the Analyis 
 
-Output of the tiday dataset can be found in **uci-tidy-dataset.txt** 
+Output of the tidy dataset can be found in **uci-tidy-dataset.txt** 
+ 
 Or in environment as `View(data)` and `View(data.tidy)`
+
+## Details About Data Cleaning and Raw Data
+
+View the CodeBook.md for additional details about how **run_analysis.R** cleans the data. 
+ 
+As well as information about how the raw data that was used was collected. 
