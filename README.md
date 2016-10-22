@@ -1,17 +1,16 @@
-## Getting and Cleaning Data Coursera Course Project
+# Getting and Cleaning Data Coursera Course Project
 
-##run_analysis.R 
+This is the course project for Getting and Cleaning Data, a coursera course by John Hopkins University. 
 
-run_analysis.R s used to download the UCI HAR Dataset, unzip the data and create a tidy dataset.
-It will unzip the data, and merge the training and test set into a single dataset.
-It labels the columns of variables based on the features and activities that were collected.
-It filters for those columns that are specific to mean and std.
+## The 'run_analysis.R' script does the following:
 
-It outputs to datasets, "data" and "data.tidy". 
-"data"" is a single, long form data table that contains the merge test and traind data appropriately labeled.
-"data.tidy" is a tidy dataset that filters out columns that are not dealing directly with mean and std. It then groups and creates a summarized mean of each measurement for the activity and subject.
+1. Merges the training and the test sets to create one data set.
+2. Extracts only the measurements on the mean and standard deviation for each measurement.
+3. Uses descriptive activity names to name the activities in the data set
+4. Appropriately labels the data set with descriptive variable names.
+5. From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
 
+## Output of the Analyis 
 
-
-##uci-tidy-dataset.csv
-
+Output of the tiday dataset can be found in 'uci-tidy-dataset.txt' 
+Or in environment as $View(data)$ and $View(data.tidy)$ 
