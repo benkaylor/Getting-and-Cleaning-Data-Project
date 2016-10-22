@@ -30,7 +30,7 @@ View the CodeBook.md for additional details about variables used in **run_analys
  
 As well as information about how the raw data that was used was collected. 
 
-### Additional Details about Using run_analysis.R
+## Additional Details about Using run_analysis.R
 
 * Download the Data and Unzip
   + `https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip`
