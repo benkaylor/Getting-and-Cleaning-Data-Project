@@ -4,32 +4,49 @@ This codebook will help you to understand how the **run_analysis.R** script work
 
 # Creating a Tidy Data Set
 
-* Read in the activity labels  'data.activity_labels<-fread("UCI HAR Dataset/activity_labels.txt")'
+* Read in the activity labels `data.activity_labels<-fread("UCI HAR Dataset/activity_labels.txt")`
 
-Activity Label Numeric  | Activity Labels
------------------------ | ---------------
-1 | WALKING
-2 | WALKING_UPSTAIRS
-3 | WALKING_DOWNSTAIRS
-4 | SITTING
-5 | STANDING
-6 | LAYING
+| V1|V2                 |
+|--:|:------------------|
+|  1|WALKING            |
+|  2|WALKING_UPSTAIRS   |
+|  3|WALKING_DOWNSTAIRS |
+|  4|SITTING            |
+|  5|STANDING           |
+|  6|LAYING             |
 
-* Read in the features 'data.features<-fread("UCI HAR Dataset/features.txt",select = c("V2"))'
+* Read in the features `data.features<-fread("UCI HAR Dataset/features.txt",select = c("V2"))`
 
+|V2                |
+|:-----------------|
+|tBodyAcc-mean()-X |
+|tBodyAcc-mean()-Y |
+|tBodyAcc-mean()-Z |
+|tBodyAcc-std()-X  |
+|tBodyAcc-std()-Y  |
+|tBodyAcc-std()-Z  |
+|tBodyAcc-mad()-X  |
+|tBodyAcc-mad()-Y  |
+|tBodyAcc-mad()-Z  |
+|tBodyAcc-max()-X  |
 
-
-
-run_analysis.R s used to download the UCI HAR Dataset, unzip the data and create a tidy dataset.
-It will unzip the data, and merge the training and test set into a single dataset.
-It labels the columns of variables based on the features and activities that were collected.
-It filters for those columns that are specific to mean and std.
-
-It outputs to datasets, "data" and "data.tidy". 
-"data"" is a single, long form data table that contains the merge test and traind data appropriately labeled.
-"data.tidy" is a tidy dataset that filters out columns that are not dealing directly with mean and std. It then groups and creates a summarized mean of each measurement for the activity and subject.
-
-
+* Read in training set data, cbind and label columns using `data.features`
+  + x_train.txt
+  + y_train.txt
+  + subject_train.txt
+* Read in test set data, cbind and label columns using `data.features`
+  + x_test.txt
+  + y_test.txt
+  + subject_test.txt
+* Merge test and training data into single long form data table
+* Extract just the mean and std values
+  + `data[,which(!grepl("subject$|activities$|-mean()[^meanFreq]|-std()", colnames(data))):=NULL]`
+* Use 'data.activity_labels' to replace 1-6 values with WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING
+* Create a tidy data set with just the summarized mean values for each activity and subject
+  + `data.tidy <- data %>% group_by(subject,activities) %>% summarize_each(funs(mean))`
+* View output of thedatasets using `View(data)` and `View(data.tidy)`
+* Also writes the output of `data.tidy` to **uci-tidy-dataset.txt**
+  + `write.table(data.tidy, file="uci-tidy-dataset.txt", quote=FALSE, sep='\t', row.names = FALSE)`
 
 ## Additional Information About How the Raw Data Was Collected
 

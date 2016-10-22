@@ -1,15 +1,15 @@
-
-
+#Download the Zip Files
 download.file("https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip","Human+Activity+Recognition+Using+Smartphones.zip")
 unzip("Human+Activity+Recognition+Using+Smartphones.zip", exdir = ".", unzip = "internal")
 
+#Required Packages to run
 library(data.table)
 library(dplyr)
 
 # Read in the Features and Activity Labels
-data.features<-fread("UCI HAR Dataset/features.txt",select = c("V2"))
 data.activity_labels<-fread("UCI HAR Dataset/activity_labels.txt")
-##data.features_info<-fread("UCI HAR Dataset/features_info.txt")
+data.features<-fread("UCI HAR Dataset/features.txt",select = c("V2"))
+#data.features_info<-fread("UCI HAR Dataset/features_info.txt")
 
 # Read in Training Set (UCI HAR Dataset/train/x_train.txt) and Training Labels (UCI HAR Dataset/train/y_train.txt)
 
@@ -79,6 +79,4 @@ View(data)
 View(data.tidy)
 
 write.table(data.tidy, file="uci-tidy-dataset.txt", quote=FALSE, sep='\t', row.names = FALSE)
-write.table(data.tidy, file="uci-tidy-dataset.csv", quote=FALSE, sep=',', row.names = FALSE)
-
-write.table(data.test, file="uci-tidy-dataset-test.csv", quote=FALSE, sep=',', row.names = FALSE)
+#write.table(data.tidy, file="uci-tidy-dataset.csv", quote=FALSE, sep=',', row.names = FALSE)
