@@ -1,8 +1,24 @@
 # Introduction
 
-This codebook will help you to understand how the **run_analysis.R** script works.
+This codebook will help you to understand how the **run_analysis.R** script works to create a simple data set and tidy dataset.
 
 # Creating a Tidy Data Set
+
+* Read in the activity labels  'data.activity_labels<-fread("UCI HAR Dataset/activity_labels.txt")'
+
+Activity Label Numeric  | Activity Labels
+----------------------- | ---------------
+1 | WALKING
+2 | WALKING_UPSTAIRS
+3 | WALKING_DOWNSTAIRS
+4 | SITTING
+5 | STANDING
+6 | LAYING
+
+* Read in the features 'data.features<-fread("UCI HAR Dataset/features.txt",select = c("V2"))'
+
+
+
 
 run_analysis.R s used to download the UCI HAR Dataset, unzip the data and create a tidy dataset.
 It will unzip the data, and merge the training and test set into a single dataset.
@@ -15,7 +31,7 @@ It outputs to datasets, "data" and "data.tidy".
 
 
 
-## Data Set Information:
+## Additional Information About How the Raw Data Was Collected
 
 "The experiments have been carried out with a group of 30 volunteers within an age bracket of 19-48 years. Each person performed six activities (WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING) wearing a smartphone (Samsung Galaxy S II) on the waist. Using its embedded accelerometer and gyroscope, we captured 3-axial linear acceleration and 3-axial angular velocity at a constant rate of 50Hz. The experiments have been video-recorded to label the data manually. The obtained dataset has been randomly partitioned into two sets, where 70% of the volunteers was selected for generating the training data and 30% the test data." 
 
@@ -32,7 +48,7 @@ It outputs to datasets, "data" and "data.tidy".
 *Source - https://www.semanticscholar.org/paper/Energy-Efficient-Smartphone-Based-Activity-Anguita-Ghio/dc7024840a4ba7ab634517fae53e77695ff5dda9*
 
 
-* Red for the X axis, green for Y and blue for Z. It uses the standard android smartphone coordinate system.
+* It uses the standard android smartphone coordinate system.
   + X is left side or right side of phone.
   + Y is up or down on phone
   + Z is forward or backward on phone.
