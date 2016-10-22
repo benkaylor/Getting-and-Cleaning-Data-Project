@@ -5,7 +5,7 @@ This codebook will help you to understand how the **run_analysis.R** script work
 # Creating a Tidy Data Set
 
 * Read in the activity labels `data.activity_labels<-fread("UCI HAR Dataset/activity_labels.txt")`
-
+  + `head(data.activity_labels)`
 | V1|V2                 |
 |--:|:------------------|
 |  1|WALKING            |
@@ -16,7 +16,7 @@ This codebook will help you to understand how the **run_analysis.R** script work
 |  6|LAYING             |
 
 * Read in the features `data.features<-fread("UCI HAR Dataset/features.txt",select = c("V2"))`
-
+  + `head(data.features)`
 |V2                |
 |:-----------------|
 |tBodyAcc-mean()-X |
