@@ -2,7 +2,17 @@
 
 This codebook will help you to understand how the **run_analysis.R** script works to create a simple data set and tidy dataset.
 
-# Variables
+## Process
+
+* Read in the activity labels `data.activity_labels`
+* Read in the features `data.features`
+* Read in training set data, cbind and label columns using `data.train`
+* Read in test set data, cbind and label columns using `data.test`
+* Merge test and training data into single long form data table `data`
+* Extract just the mean and std values `data.tidy`
+
+
+## Variables
 
 * Global
   + `data.activity_labels` - Reads activity_labels.txt and labels
@@ -23,8 +33,14 @@ This codebook will help you to understand how the **run_analysis.R** script work
   + `data.test` - merges data.test.y, data.test.x, and data.test.subject
   + `data.test` - merges data.test.y, data.test.x, and data.test.subject
 
+## Output
 
-## Additional Information About How the Raw Data Was Collected
+* `uci-tidy-dataset.txt` is 180x68 data frame
+  + `data.tidy$subject` column is the anonymous representation of the person participating in the experiment
+  + `data.tidy$activities` column is the type of 6 activities that the subject was attempting
+  + The remaining 66 columns are the mean for each measurement taken from the device the subject was wearing, where the measurement already represented a mean or std.
+
+### Additional Information About How the Raw Data Was Collected
 
 "The experiments have been carried out with a group of 30 volunteers within an age bracket of 19-48 years. Each person performed six activities (WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING) wearing a smartphone (Samsung Galaxy S II) on the waist. Using its embedded accelerometer and gyroscope, we captured 3-axial linear acceleration and 3-axial angular velocity at a constant rate of 50Hz. The experiments have been video-recorded to label the data manually. The obtained dataset has been randomly partitioned into two sets, where 70% of the volunteers was selected for generating the training data and 30% the test data." 
 
